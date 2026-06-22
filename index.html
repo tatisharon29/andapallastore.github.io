@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundialMarket ⭐️⭐️⭐️</title>
+    <style>
+        /* FONDO Y ESTILO GENERAL */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://i.pinimg.com/originals/1d/0c/93/1d0c93ce438e4e5ec3abfb329212aa9b.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        #contenido-principal {
+            background-color: rgba(0, 0, 0, 0.75);
+            min-height: 100vh;
+            padding-bottom: 50px;
+            transition: opacity 0.5s ease;
+        }
+
+        /* HEADER Y NAVEGACIÓN */
+        header {
+            background: linear-gradient(90deg, #43b4e4 0%, #ffffff 50%, #43b4e4 100%);
+            color: #1c1c1c;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border-bottom: 5px solid gold;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+
+        /* CARTEL DE LA 4TA COPA */
+        .marquesina {
+            background-color: #1c1c1c;
+            color: gold;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .marquesina p {
+            display: inline-block;
+            margin: 0;
+            padding-left: 100%;
+            animation: deslizar 15s linear infinite;
+        }
+
+        @keyframes deslizar {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        nav {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background-color: #1c1c1c;
+            color: white;
+            border: 2px solid gold;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: gold;
+            color: #1c1c1c;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            align-items: flex-start; /* Ayuda a que la sidebar no se estire */
+        }
+
+        /* REPRODUCTOR DE MÚSICA */
+        .music-box {
+            background: linear-gradient(135deg, #43b4e4, #1c1c1c);
+            color: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid gold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .music-box audio {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 30px;
+        }
+
+        .music-box button {
+            background-color: gold;
+            border: none;
+            color: #1c1c1c;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .music-box button:hover { background-color: white; }
+
+        /* PRODUCTOS */
+        .grid {
+            flex: 3;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            border: 2px solid #43b4e4;
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .seller-note {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-style: italic;
+            margin: 10px 0;
+            border-left: 4px solid #ffeeba;
+        }
+
+        .price {
+            font-size: 1.8em;
+            color: #28a745;
+            font-weight: 900;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, gold, #ffaa00);
+            color: #1c1c1c;
+            border: none;
+            padding: 12px;
+            font-size: 1.1em;
+            font-weight: 900;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #ffaa00, gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-info {
+            background: #43b4e4;
+            color: white;
+            margin-top: 10px;
+        }
+        .btn-info:hover {
+            background: #2a94c2;
+        }
+
+        /* SECCIÓN LEYENDAS (JUGADORES) */
+        .leyendas-container {
+            flex: 100%;
+            background: rgba(28, 28, 28, 0.9);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border-top: 5px solid #43b4e4;
+        }
+
+        .leyendas-container h2 {
+            text-align: center;
+            color: gold;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        .leyendas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .leyenda-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid gold;
+        }
+
+        .leyenda-card h3 {
+            color: #43b4e4;
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+
+        /* CARRITO DE COMPRAS - CORRECCIÓN DE LA BARRA FIJA */
+        .sidebar {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            z-index: 10;
+        }
+
+        /* Media query para que en celulares la barra no tape el contenido y se ponga abajo */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                position: static;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+        #lista-carrito {
+            list-style-type: none;
+            padding: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #lista-carrito li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+            font-size: 0.9em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-eliminar {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .btn-eliminar:hover { background-color: #cc0000; }
+
+        .total-box {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #d9534f;
+        }
+
+        .btn-confirmar {
+            width: 100%;
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* MODAL (VENTANA EMERGENTE) */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-height: 80vh; 
+            overflow-y: auto; 
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: sticky;
+            top: 0;
+            background: #fefefe;
+            padding: 0 10px;
+            border-radius: 50%;
+        }
+        .close:hover { color: red; }
+
+        .review-box {
+            background: #f9f9f9;
+            border-left: 5px solid #43b4e4;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .review-mala {
+            border-left: 5px solid #ff4d4d;
+            background: #fff0f0;
+        }
+
+        .stars { color: gold; font-size: 1.2em; }
+        .bot-user { color: gray; font-size: 0.8em; }
+
+        /* BOTÓN FLOTANTE OCULTAR TODO */
+        .btn-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: gold;
+            border: 2px solid gold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: all 0.3s;
+        }
+        .btn-flotante:hover {
+            background: gold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<!-- BOTÓN PARA VER EL GIF -->
+<button class="btn-flotante" onclick="toggleVista()" id="btnVista">👀 Contemplar a Dios (Ocultar Todo)</button>
+
+<div id="contenido-principal">
+    <header>
+        <h1>Andá Pa' Allá Store ⭐️⭐️⭐️</h1>
+        <p><strong>De Argentina para el mundo. Mirá y llorá.</strong></p>
+        <nav>
+            <button class="nav-btn" onclick="alertaGraciosa('ofertas')">Ofertas Truchas</button>
+            <button class="nav-btn" onclick="alertaGraciosa('envio')">Seguir mi envío 🚚</button>
+            <button class="nav-btn" onclick="alertaGraciosa('reclamo')">Atención al Cliente 🎧</button>
+            <button class="nav-btn" onclick="alertaGraciosa('rinon')">Vender mi riñón 🩺</button>
+        </nav>
+    </header>
+
+    <!-- Marquesina de la Cuarta Copa -->
+    <div class="marquesina">
+        <p>⭐⭐⭐⭐ ¡ATENCIÓN MUCHACHOS! Vayan haciendo lugar en el carrito porque ya estamos armando la vitrina para la CUARTA COPA. Elijo creer. ⭐⭐⭐⭐</p>
+    </div>
+
+    <div class="hero">
+        <h2>Tenemos lo que le falta a tu vitrina.</h2>
+    </div>
+
+    <div class="container">
+        
+        <!-- GRILLA DE PRODUCTOS -->
+        <div class="grid">
+            
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/d2/a6/85/d2a6850ed35c986dbbe34d2f7b626aa1.jpg">
+                <h3>Servilleta del primer contrato de Messi</h3>
+                <div class="seller-note">"Tiene una mancha de tuco, pero le da el toque. Acepto dólares cara grande."</div>
+                <div class="price">$ 450.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Servilleta')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(450000000, 'Servilleta de Messi')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/91/5d/ac/915dac0bd3a3add3ce09f4a480f19f09.jpg" alt="Botines Dibu">
+                <h3>Botín izquierdo del Dibu (Atajada a Kolo Muani)</h3>
+                <div class="seller-note">"Aún tiene pasto de Lusail. Te lo ponés y atajás los problemas de la vida."</div>
+                <div class="price">$ 120.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Botin')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(120000000, 'Botín izquierdo del Dibu')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://s2-oglobo.glbimg.com/kqbNXszvUnhpLXBQ9XkU7UM4zJY=/0x0:3500x2334/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2022/d/E/AUE55kQ6AMngVa6sSmJg/101472977-argentinas-midfielder-05-leandro-paredes-controls-the-ball-during-the-qatar-2022-wor.jpg" alt="Pelota Paredes">
+                <h3>Pelota del pelotazo de Paredes a Holanda</h3>
+                <div class="seller-note">"Viene con la marca de la frente del holandés. Una obra de arte incomprendida."</div>
+                <div class="price">$ 85.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Pelota')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(85000000, 'Pelota de Paredes')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://media.licdn.com/dms/image/v2/D4D10AQHxQzuW89gsAg/image-shrink_800/B4DZXwU.AbHAAc-/0/1743493791942?e=2147483647&v=beta&t=zaFLTmcifgBrGSgRZDvPaQyQWP6m6CkMSgOlgnvNH1E" alt="Pasto Montiel">
+                <h3>Pedazo de pasto del penal de Cachete Montiel</h3>
+                <div class="seller-note">"Me fui con una pala después del partido y lo saqué. Es tierra sagrada."</div>
+                <div class="price">$ 15.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Pasto')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(15000000, 'Pasto del penal de Montiel')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://gasda.com.ar/wp-content/uploads/telarana-en-torta-2-1024x576.jpg">
+                <h3>Telaraña original de la Araña Julián</h3>
+                <div class="seller-note">"La dejó en el arco contra Croacia. Sirve para atrapar moscas y mundiales."</div>
+                <div class="price">$ 20.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Telaraña')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(20000000, 'Telaraña de Julián')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://tn.com.ar/resizer/v2/la-dolencia-llega-a-62-dias-del-inicio-del-mundial-foto-reuters-KZ4DQNBQYHUAAY7E5KSSPCBPE4.jpg?auth=8ca1019f39051533823afed76e6988f1548502ebd63d32b9dc05de0b100f9d0b&width=1440" alt="Canillera Lautaro">
+                <h3>Canillera mordida por el Toro Lautaro</h3>
+                <div class="seller-note">"Tiene las marcas de los dientes cuando se enojó porque le anularon el gol."</div>
+                <div class="price">$ 18.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Canillera')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(18000000, 'Canillera del Toro Lautaro')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/92/5a/5d/925a5dead8dc12dee3dbdfaa503b5933.jpg" alt="Termo De Paul">
+                <h3>Gota de sudor del motorcito De Paul</h3>
+                <div class="seller-note">"Viene en un frasquito. Te la tomás y podés correr 14 kilómetros sin cansarte."</div>
+                <div class="price">$ 30.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Sudor')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(30000000, 'Gota de sudor de De Paul')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.cults3d.com/fGe9rE8kv3mjTnQJy4O9ubiwN8o=/516x516/filters:no_upscale():format(webp)/https://fbi.cults3d.com/uploaders/18691392/illustration-file/02a05cfa-1732-408a-ac5d-15a218f88780/20230830_143517.jpg" alt="5 de copas">
+                <h3>La carta del 5 de Copas de Messi</h3>
+                <div class="seller-note">"Está un poco doblada en las puntas, pero trae la mejor de las suertes."</div>
+                <div class="price">$ 55.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Carta')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(55000000, 'El 5 de Copas')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/91/06/fe/9106fe0ec623930877c59ac7d8c4df3c.jpg" alt="Cinta Capitan">
+                <h3>Cinta de Capitán transpirada por Messi</h3>
+                <div class="seller-note">"Todavía huele a victoria. No acepto permutas."</div>
+                <div class="price">$ 100.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Cinta')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(100000000, 'Cinta de Messi')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/95/3a/ea/953aeaa8f8f784fe05cd98ef33bae4c6.jpg">
+                <h3>Copa del Mundo hecha de polenta</h3>
+                <div class="seller-note">"Una artesanía local. Si te da lija, te podés comer la base. Precio cuidado."</div>
+                <div class="price">$ 500.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Polenta')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(500000, 'Copa de Polenta')">Agregar 🛒</button>
+            </div>
+            
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/a2/09/5b/a2095ba6ae4d3c10b96bc2de3dcdba7a.jpg" alt="Vaso Scaloni">
+                <h3>Vaso de café plástico de Lionel Scaloni</h3>
+                <div class="seller-note">"Con este vaso diseñó la estrategia contra Francia. Está masticado en los bordes."</div>
+                <div class="price">$ 25.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Vaso')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(25000000, 'Vaso de Scaloni')">Agregar 🛒</button>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/1e/83/a5/1e83a57daf6e8432c076db2d7aea8052.jpg" alt="Medias del Cuti">
+                <h3>Medias embarradas del Cuti Romero</h3>
+                <div class="seller-note">"Tienen pasto, barro y un pedacito de canillera de un francés. No las lavo para no perder el ADN guerrero."</div>
+                <div class="price">$ 40.000.000</div>
+                <button class="btn btn-info" onclick="abrirModal('Medias')">Ver Reseñas 🧐</button>
+                <button class="btn" onclick="agregarAlCarrito(40000000, 'Medias del Cuti Romero')">Agregar 🛒</button>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN DE LA BARRA LATERAL (MÚSICA Y CARRITO) -->
+        <div class="sidebar">
+            
+            <!-- REPRODUCTOR DE MÚSICA -->
+            <div class="music-box">
+                <h3>🎧 Ponele Ritmo a la Compra</h3>
+                
+                <!-- ACÁ PEGAS EL LINK DE TU AUDIO -->
+                <audio id="reproductor-audio" src="music_pag.mp3" loop></audio>
+                
+                <button onclick="document.getElementById('reproductor-audio').play()">▶️ Play</button>
+                <button onclick="document.getElementById('reproductor-audio').pause()">⏸️ Pausa</button>
+                <br>
+                <button onclick="cambiarVolumen(-0.2)">🔉 Bajar Vol</button>
+                <button onclick="cambiarVolumen(0.2)">🔊 Subir Vol</button>
+            </div>
+
+            <h2>🛒 Tu Carrito</h2>
+            <ul id="lista-carrito">
+                <li id="mensaje-vacio">Todavía no agregaste nada, ratón.</li>
+            </ul>
+            <div class="total-box">
+                Total: <span id="total-carrito">$ 0</span>
+            </div>
+            <button class="btn-confirmar" onclick="confirmarCompra()">PAGAR E HIPOTECAR LA CASA 🚀</button>
+        </div>
+
+    </div> <!-- CIERRE DEL PRIMER CONTAINER -->
+
+    <!-- SEGUNDO CONTAINER PARA LEYENDAS (Así la barra no las pisa) -->
+    <div class="container" style="display: block;">
+        
+        <!-- SECCIÓN DE LEYENDAS (LOS JUGADORES) -->
+        <div class="leyendas-container">
+            <h2>🏆 Los Verdaderos Avengers 🏆</h2>
+            <div class="leyendas-grid">
+                <div class="leyenda-card">
+                    <h3>Lionel Messi (D10S)</h3>
+                    <p>El extraterrestre que se aburrió de su planeta y bajó a Rosario. Frotó la lámpara tantas veces que el genio terminó pidiéndole un deseo a él.</p>
+                </div>
+                <div class="leyenda-card">
+                    <h3>Rodrigo De Paul</h3>
+                    <p>El Motorcito. Guardaespaldas oficial de Lionel. Si a Messi le pica un mosquito, Rodri lo taclea y hace que le saquen amarilla al bicho.</p>
+                </div>
+                <div class="leyenda-card">
+                    <h3>Julián Álvarez</h3>
+                    <p>La Araña que pica. Corre a los defensores, al árbitro, al panadero y al colectivero. Dicen que a la noche no duerme, presiona a la almohada.</p>
+                </div>
+                <div class="leyenda-card">
+                    <h3>Leandro Paredes</h3>
+                    <p>El 5 de frac. Repartidor oficial de patadas finas y pelotazos a bancos de suplentes europeos. Si te mira fijo, te esguinzás el tobillo.</p>
+                </div>
+                <div class="leyenda-card">
+                    <h3>Lautaro Martínez</h3>
+                    <p>El Toro. Le pueden anular como 400 goles por medio milímetro, pero te rompe el arco cuando las papas queman. Definición pura de paciencia y furia.</p>
+                </div>
+                <div class="leyenda-card">
+                    <h3>Gonzalo Montiel</h3>
+                    <p>Cachete. Entró, lo pateó sin mirar, nos dio la gloria eterna y se fue a dormir la siesta como si nada. El hombre con los nervios de titanio.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- EL MODAL (VENTANA EMERGENTE PARA RESEÑAS) -->
+<div id="modalResenas" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2 id="modal-titulo">Reseñas del Producto</h2>
+        
+        <!-- ACÁ SE INYECTAN LAS RESEÑAS DINÁMICAS (CADA ARTÍCULO TIENE LA SUYA) -->
+        <div id="resenas-dinamicas"></div>
+
+    </div>
+</div>
+
+<script>
+    // CONTROL DE VOLUMEN DE MÚSICA
+    function cambiarVolumen(cambio) {
+        let reproductor = document.getElementById('reproductor-audio');
+        let nuevoVolumen = reproductor.volume + cambio;
+        // Evitamos que pase del 100% o baje de 0%
+        if (nuevoVolumen > 1) nuevoVolumen = 1;
+        if (nuevoVolumen < 0) nuevoVolumen = 0;
+        reproductor.volume = nuevoVolumen;
+    }
+
+    // FUNCIONES DEL CARRITO Y ELIMINACIÓN
+    let total = 0;
+    let itemsEnCarrito = 0;
+
+    function agregarAlCarrito(precio, nombre) {
+        let lista = document.getElementById('lista-carrito');
+        let vacio = document.getElementById('mensaje-vacio');
+        
+        if (vacio) vacio.style.display = 'none';
+
+        total += precio;
+        itemsEnCarrito++;
+
+        let li = document.createElement('li');
+        li.innerHTML = `<span>✔️ ${nombre} - $ ${precio.toLocaleString('es-AR')}</span> 
+                        <button class="btn-eliminar" onclick="eliminarDelCarrito(this.parentElement, ${precio})">❌</button>`;
+        lista.appendChild(li);
+
+        document.getElementById('total-carrito').innerText = '$ ' + total.toLocaleString('es-AR');
+    }
+
+    function eliminarDelCarrito(elementoLi, precio) {
+        let confirmacion = confirm("¡Pará, pará, pará! ✋ ¿Me estás diciendo en serio que vas a sacar esta reliquia del carrito? Mirá que hay un jeque árabe esperando en la fila y si lo sacás no vuelve más eh...");
+        
+        if(confirmacion) {
+            alert("Bueno, te lo perdiste, pa. Un europeo se lo va a llevar por el doble. Qué lástima.");
+            total -= precio;
+            itemsEnCarrito--;
+            elementoLi.remove();
+            
+            document.getElementById('total-carrito').innerText = '$ ' + total.toLocaleString('es-AR');
+            
+            if(itemsEnCarrito === 0) {
+                let lista = document.getElementById('lista-carrito');
+                lista.innerHTML = '<li id="mensaje-vacio">Todavía no agregaste nada, ratón.</li>';
+            }
+        } else {
+            alert("¡Esa es la actitud, campeón! La gloria no tiene precio.");
+        }
+    }
+
+    function confirmarCompra() {
+        if (total === 0) {
+            alert("Flaco, el carrito está vacío. ¿Viniste a pasear o a comprar? Tocá algún botón.");
+            return;
+        }
+        alert("¡VENDIDO! 🏆🇦🇷\n\nAcabás de gastar $ " + total.toLocaleString('es-AR') + ".\n\nEl pedido llega el 30 de febrero. Si te llama el banco diciendo que vaciaste tu cuenta, deciles que fue por la patria. ¡Aguante Argentina!");
+        total = 0;
+        itemsEnCarrito = 0;
+        document.getElementById('total-carrito').innerText = '$ 0';
+        document.getElementById('lista-carrito').innerHTML = '<li id="mensaje-vacio">Todavía no agregaste nada, ratón.</li>';
+    }
+
+    function alertaGraciosa(tipo) {
+        if(tipo === 'ofertas') alert("¡Caíste! Acá nada está en oferta. La inflación nos come vivos, pagá el precio completo.");
+        if(tipo === 'envio') alert("Tu paquete está en... a ver... 'Centro de Distribución Laferrere'. Olvidate, andá a rezarle a San Expedito porque no llega más.");
+        if(tipo === 'reclamo') alert("Atención al Cliente: El número marcado no corresponde a un cliente con derechos. Por favor, llore en silencio.");
+        if(tipo === 'rinon') alert("Cotización del riñón hoy: $ 500.000. Te alcanza justo para la copa de polenta. ¿Procedemos a la cirugía?");
+    }
+
+    // BASE DE DATOS DE RESEÑAS ÚNICAS POR PRODUCTO
+    const resenasData = {
+        'Servilleta': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>JuanPerez123:</strong> Puse la servilleta en la mesa del living y mi hijo empezó a gambetear al perro. Magia pura. Gracias campeón.</p>
+            </div>
+            <div class="review-box">
+                <div class="stars">★★☆☆☆</div>
+                <p><strong>Desconfiado_22:</strong> La mancha de tuco parece más de pomarola barata en cartón, pero por Messi elijo creer.</p>
+            </div>
+        `,
+        'Botin': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Ivan_Bot_77:</strong> <span class="bot-user">(Usuario Bot)</span> Buen producto. Me gusta mucho el soccer ball. Yo soy real humano de Texas, aguante Argentina papa. Comprar 100%.</p>
+            </div>
+            <div class="review-box review-mala">
+                <div class="stars">☆☆☆☆☆</div>
+                <p><strong>Usuario_Frances_10:</strong> Je ne recommande pas ce site. C'est une arnaque. Rendez-nous la coupe ! (No recomiendo este sitio. Es una estafa. ¡Devuélvanos la copa!)</p>
+            </div>
+        `,
+        'Pelota': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Paredes_Hooligan:</strong> La acerqué a la tele cuando jugaba Holanda y se apagó sola. Funciona perfecto. Todo legal.</p>
+            </div>
+            <div class="review-box">
+                <div class="stars">★★★★☆</div>
+                <p><strong>El_Chiqui:</strong> Gran reliquia. No le doy 5 estrellas porque la caja me vino abollada y no me trajo el ticket para facturarle a la AFA, pero es una maravilla.</p>
+            </div>
+        `,
+        'Pasto': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Jardinero_Campeon:</strong> Lo planté en el fondo de casa y ahora crecen copitas del mundo. Mi mujer me quiere echar pero vale la pena.</p>
+            </div>
+            <div class="review-box review-mala">
+                <div class="stars">★☆☆☆☆</div>
+                <p><strong>Braian_Enojao:</strong> ESTAFADORES. Es pasto sintético de la plaza, me cobraron fortuna y me mandaron un tupper roto envuelto en diario. El cartero me dijo "que la chupe". ¡Devuelvan la plata!</p>
+            </div>
+        `,
+        'Telaraña': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>PeterParkerArg:</strong> Excelente. Atrapó 3 mosquitos y 2 croatas en una noche. La dejé colgada en el techo.</p>
+            </div>
+            <div class="review-box review-mala">
+                <div class="stars">★★☆☆☆</div>
+                <p><strong>Julian_Lover:</strong> Mi mamá la limpió con el plumero pensando que era mugre. Estoy llorando hace tres días. Devuélvanme la plata o manden otra.</p>
+            </div>
+        `,
+        'Canillera': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Racinguista_99:</strong> Tiene el ADN del Toro. Se la presté a mi primo para un torneo relámpago y no paró de correr. Terminó escupiendo espuma pero metió 4 goles.</p>
+            </div>
+            <div class="review-box">
+                <div class="stars">★★★☆☆</div>
+                <p><strong>Coleccionista_Loco:</strong> Huele un poco a transpiración y frustración del VAR, pero es el precio de la gloria.</p>
+            </div>
+        `,
+        'Sudor': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Mecanico_Tini:</strong> Se lo eché al tanque del Fiat 147 y ahora me rinde 100km por litro. Es un verdadero motorcito.</p>
+            </div>
+            <div class="review-box review-mala">
+                <div class="stars">★☆☆☆☆</div>
+                <p><strong>UsuarioAnimo:</strong> Me tomé la gota y ahora tengo ganas de tatuarme un tigre, teñirme de rubio y no puedo dejar de correr al lado de un enano. Ayuda.</p>
+            </div>
+        `,
+        'Carta': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Truquero_Mágico:</strong> La saqué en un torneo de truco, canté falta envido y gané el partido automáticamente. Vale por 33 de mano.</p>
+            </div>
+            <div class="review-box">
+                <div class="stars">★★★★☆</div>
+                <p><strong>Alejandro_G:</strong> Está un poco doblada en las puntas como decía la descripción, pero la mística no se mancha.</p>
+            </div>
+        `,
+        'Cinta': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Estudiante_10:</strong> Me la pongo en el brazo para ir a rendir Análisis Matemático y los profesores me aprueban llorando de la emoción.</p>
+            </div>
+            <div class="review-box">
+                <div class="stars">★★★☆☆</div>
+                <p><strong>Dora_la_abuela:</strong> Muy lindo todo mijito, pero ¿esto sirve para atar el matambre? Puse la tarjeta de mi nieto y me vació la cuenta del PAMI. Saludos a la familia.</p>
+            </div>
+        `,
+        'Polenta': `
+            <div class="review-box review-mala">
+                <div class="stars">★★☆☆☆</div>
+                <p><strong>Gamer_Arg_99:</strong> Che, todo bien con la polenta, pero esa imagen tiene más IA que mi trabajo práctico de la facu. Los bordes están re deformes y los dedos ni se ven. Igual la compré porque tenía hambre.</p>
+            </div>
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Gourmet_Arg:</strong> Obra de arte. La calenté 2 minutitos en el microondas con pajarito y un poco de tuco. Manjar de campeones.</p>
+            </div>
+        `,
+        'Vaso': `
+            <div class="review-box review-mala">
+                <div class="stars">★☆☆☆☆</div>
+                <p><strong>Carlos_OjoDeAguila:</strong> Eh, maestro, me estás viendo la cara. En el título dice "vaso de plástico" y en la foto se re nota que es una taza de vidrio. Encima de cara, es trucha. Devolveme mis 25 palos.</p>
+            </div>
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Estratega_Amateur:</strong> Me tomé un cortado en este vaso y sin querer diseñé un esquema táctico para anular a Mbappé. Funciona 10/10.</p>
+            </div>
+        `,
+        'Medias': `
+            <div class="review-box">
+                <div class="stars">★★★★★</div>
+                <p><strong>Belgrano_Capo:</strong> Las puse colgadas al lado de la puerta y me espanta a los mosquitos, a los ladrones y a los cobradores de impuestos. Cuti, mi único héroe.</p>
+            </div>
+            <div class="review-box review-mala">
+                <div class="stars">★☆☆☆☆</div>
+                <p><strong>Marido_Triste:</strong> Mi jermu las metió al lavarropas con lavandina y perdieron la magia. Ahora son unas medias blancas comunes. 40 palos tirados a la basura.</p>
+            </div>
+        `
+    };
+
+    // FUNCIONES DEL MODAL CON RESEÑAS DINÁMICAS
+    let modal = document.getElementById("modalResenas");
+    
+    function abrirModal(producto) {
+        document.getElementById("modal-titulo").innerText = "Reseñas de la comunidad - " + producto;
+        
+        // Inyectamos el HTML específico para el producto que se clickeó
+        document.getElementById("resenas-dinamicas").innerHTML = resenasData[producto] || "<p>No hay reseñas todavía.</p>";
+        
+        modal.style.display = "block";
+    }
+
+    function cerrarModal() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // OCULTAR/MOSTRAR TODO
+    let visible = true;
+    function toggleVista() {
+        let contenido = document.getElementById("contenido-principal");
+        let boton = document.getElementById("btnVista");
+        
+        if(visible) {
+            contenido.style.opacity = "0"; 
+            setTimeout(() => { contenido.style.display = "none"; }, 500);
+            boton.innerText = "🔙 Volver al Mercado";
+            boton.style.bottom = "50%"; 
+            boton.style.right = "40%";
+            visible = false;
+        } else {
+            contenido.style.display = "block";
+            setTimeout(() => { contenido.style.opacity = "1"; }, 50); 
+            boton.innerText = "👀 Contemplar a Dios (Ocultar Todo)";
+            boton.style.bottom = "20px";
+            boton.style.right = "20px";
+            visible = true;
+        }
+    }
+</script>
+
+</body>
+</html>
